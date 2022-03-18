@@ -40,7 +40,7 @@ def env_boost(ind=0):
     while not_ready_flag:
         try:
             client = PolicyClient("http://{}:{}".format(SERVER_ADDRESS, SERVER_PORT + ind),
-                                  inference_mode=FLAGS.inference_mode)
+                                  inference_mode=FLAGS.inference_mode, update_interval=5)
 
             eid = client.start_episode(training_enabled=True)
         except ConnectionError:
